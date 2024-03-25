@@ -10,7 +10,7 @@ def transform_in_float(value):
         value = 0
     return value
 
-st.title('Análise para predição dos valores de fechamento do índice Bovespa')
+st.title('Análise Passos Mágicos - Ponto de Virada & Evasão')
 
 tab_0, tab_1 = st.tabs(['Input Manual', 'Input Planilha'])
 
