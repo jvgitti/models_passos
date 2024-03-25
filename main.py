@@ -10,7 +10,8 @@ def transform_in_float(value):
         value = 0
     return value
 
-st.title('Análise Passos Mágicos - Ponto de Virada & Evasão')
+
+st.title('Modelo Passos Mágicos - Ponto de Virada & Evasão')
 
 tab_0, tab_1 = st.tabs(['Input Manual', 'Input Planilha'])
 
@@ -106,8 +107,8 @@ with tab_0:
         result_ponto_virada = model_ponto_virada.predict(df_input.values)
         result_evasao = model_evasao.predict(df_input.values)
 
-        st.success(f"Provável Ponto de Virada: {'Sim' if result_ponto_virada[0] else 'Não'}")
-        st.success(f"Provável Evasão: {'Sim' if result_evasao[0] == 1 else 'Não'}")
+        st.success(f"Provável Ponto de Virada: {'Sim' if result_ponto_virada[0] == 1 else 'Não'}")
+        st.success(f"Provável Evasão: {'Sim' if result_evasao[0] else 'Não'}")
 
 
 with tab_1:
@@ -125,8 +126,8 @@ with tab_1:
 
         df_result = pd.DataFrame({
             "Nome do Aluno": nomes,
-            "Possível Ponto de Virada": ['Sim' if result else 'Não' for result in result_ponto_virada],
-            "Possível Evasão": ['Sim' if result == 1 else 'Não' for result in result_evasao]
+            "Possível Ponto de Virada": ['Sim' if result == 1 else 'Não' for result in result_ponto_virada],
+            "Possível Evasão": ['Sim' if result else 'Não' for result in result_evasao]
 
         })
 
